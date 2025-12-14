@@ -100,12 +100,53 @@ public class CatalogoCelulares {
                     }
                     //Fim sub-opção
                     menu = true;
+                    break;
+                case 2:
+                    //sub-opção
+                    while (menu) {
+                        System.out.println("\nNesta sessão você pode listar itens cadastrados no catálogo\n");
+                        System.out.println("(1)-Listar itens todos itens\n(2)-Listar por posição\n(0)-Voltar");
+                        int opcaoSub = dados.nextInt();
+                        if (opcaoSub == 0) {
+                            System.out.println("Saindo");
+                            menu = false;
+                        }
+                        switch (opcaoSub) {
+                            case 0:
+                                System.out.println("Voltando Menu anterior");
+                                break;
+                            case 1:
+                                System.out.println("Modelo: "+nomeModeloCelular);
+                                System.out.println("Marca: "+ marcaCelular);
+                                System.out.println("Armazenamento: " + armazenamentoCelular);
+                                System.out.println("R$ " + precoCelular);
+                                System.out.println("Ano: " + anoCelular);
+                                break;
+                            case 2:
+                                System.out.println("Digite uma posição a partir de 0");
 
-                    //--------------
-                    System.out.println(nomeModeloCelular + "\n" + marcaCelular + "\n" + armazenamentoCelular + "\n" + precoCelular + "\n" + anoCelular);
-                    System.out.println(nomeModeloCelular.size());
-                    //--------------
+                                int numPosicao = dados.nextInt();
+
+                                if (numPosicao < nomeModeloCelular.size()){
+                                    System.out.println("Modelo: "+nomeModeloCelular.get(numPosicao));
+                                    System.out.println("Marca: "+ marcaCelular.get(numPosicao));
+                                    System.out.println("Armazenamento: " + armazenamentoCelular.get(numPosicao));
+                                    System.out.println("R$ " + precoCelular.get(numPosicao));
+                                    System.out.println("Ano: " + anoCelular.get(numPosicao));
+                                }else {
+                                    System.out.println("Não há celular cadastrado nesta posição");
+                                }
+                                break;
+                        }
+                    }
+                    //Fim sub-opção
+                    menu = true;
+                    break;
             }
         }
+        //--------------
+        System.out.println(nomeModeloCelular + "\n" + marcaCelular + "\n" + armazenamentoCelular + "\n" + precoCelular + "\n" + anoCelular);
+        System.out.println(nomeModeloCelular.size());
+        //--------------
     }
 }
